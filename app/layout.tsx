@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Dyno-Dashboard",
-  description: "Generalized solutions to multi-purpose data analytics and revenue analytics in dashboard format.",
+  description: "Generalized solutions to multi-purpose data analytics and revenue analytics in dashboard format!",
 };
 
 export default function RootLayout({
