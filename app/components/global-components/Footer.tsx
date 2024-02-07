@@ -12,9 +12,9 @@ const Footer = () => {
   return (
     <>
 
-      <div className={`hidden md:block fixed bottom-0 w-full ${sidebarOpen ? 'left-[280px]' : ' left-[70px]'} ${sidebarOpen ? 'w-[280px]' : 'w-[70px]'} ${isDarkMode ? 'bg-[color:var(--primary-dark)]' : 'bg-white'} px-10 transition-all duration-200 ease-in-out py-5`}> This is my Footer</div>
+      <div className={`hidden md:flex fixed justify-center items-center text-[12px] bottom-0 w-full ${sidebarOpen ? 'left-[280px]' : ' left-[70px]'} ${isDarkMode ? 'bg-[color:var(--primary-dark)] text-white' : 'bg-white text-black'} px-10 transition-all duration-200 ease-in-out py-4`}>Copyright© 2024 All Rights Reserved By AYN</div>
 
-      <div className={`block md:hidden fixed bottom-0 w-full left-0 ${isDarkMode ? 'bg-[color:var(--primary-dark)]' : 'bg-white'} px-10 transition-all duration-200 ease-in-out py-4`}> This is my Footer</div>
+      <div className={`flex md:hidden fixed justify-center items-center text-[12px] bottom-0 w-full left-0 ${isDarkMode ? 'bg-[color:var(--primary-dark)] text-white' : 'bg-white text-black'} px-10 transition-all duration-200 ease-in-out py-4`}>Copyright© 2024 All Rights Reserved By AYN</div>
 
     </>
   )

@@ -1,23 +1,24 @@
 'use client'
 
-import React, { useState } from 'react'
-import Image from 'next/image'
-import { HiMenuAlt2 } from "react-icons/hi";
 import { IoSearch } from "react-icons/io5";
 import useSidebarStore from '@/app/stores/sidebarStore';
 import useDarkModeStore from '@/app/stores/themeStore';
+import React, { useState } from 'react'
+import Image from 'next/image'
+import { HiMenuAlt2 } from "react-icons/hi";
 import { BiMessageRoundedDetail } from "react-icons/bi";
+import { AiFillLike } from "react-icons/ai";
 import { MdOutlineNotifications } from "react-icons/md";
+import { MdOutlineMessage } from "react-icons/md";
+import { FaShareNodes } from "react-icons/fa6";
 import profile from '@/app/assets/images/profile.jpg'
 import PopupTip from '@/app/components/global-components/PopupTip';
+import archer from '@/app/assets/images/Archer.jpg'
+import christopher from '@/app/assets/images/Christopher.jpg'
+import zana from '@/app/assets/images/Zana.jpg'
+import candice from '@/app/assets/images/Candice.jpg'
+import charlette from '@/app/assets/images/Charlette.jpg'
 
-const NavLinks = ({ icon }: { icon: string }) => {
-    return (
-        <div className='w-fit p-2 border rounded-[8px]'>
-            <Image src={icon} width={15} alt='Icon' />
-        </div>
-    )
-};
 
 const Navbar = () => {
 
@@ -44,41 +45,41 @@ const Navbar = () => {
             name: 'Archer Cowie',
             lastActive: '2 hours ago',
             activity: 'likes',
-            pic: '',
+            pic: archer,
             message: `If the option "Filter duplicate users" is enabled, it means that if a user adds two comments on your giveaway video, it's only counted as one entry.`
         },
-        
+
         {
             id: 1,
-            name: 'Cody Rodway',
+            name: 'Candice Rodway',
             lastActive: '2 hours ago',
             activity: 'commented on',
-            pic: '',
-            message: `If the option "Filter duplicate users" is enabled, it means that if a user adds two comments on your giveaway video, it's only counted as one entry.`
+            pic: candice,
+            message: `Ensure you import and use DarkModeToggle in your pages or layout components, and the dark mode should work as expected. Don't forget to import and include useDarkModeStore in your pages or layout components where you want to access and update the dark mode state`
         },
         {
             id: 2,
-            name: 'Zane Cole',
+            name: 'Zana Cole',
             lastActive: '2 hours ago',
             activity: 'shared',
-            pic: '',
-            message: `If the option "Filter duplicate users" is enabled, it means that if a user adds two comments on your giveaway video, it's only counted as one entry.`
+            pic: zana,
+            message: `The FutureBuilder widget is used to asynchronously build the UI based on the result of the fetchData function. When the snapshot has data, it maps through the items and displays a Text widget for each item. When the snapshot has an error, it displays the error message. And when the snapshot is loading, it displays a CircularProgressIndicator.`
         },
         {
             id: 3,
             name: 'Christopher Drew',
             lastActive: '2 hours ago',
             activity: 'likes',
-            pic: '',
-            message: `If the option "Filter duplicate users" is enabled, it means that if a user adds two comments on your giveaway video, it's only counted as one entry.`
+            pic: christopher,
+            message: `By far the biggest risk is the presence of the antenna particularly if it is a vertical whip. Raising a vertical conductor over a flat surface is asking for a strike. To mitigate equipment and structure damage it is common practice to provide an antenna switch which connects the antenna to the sea through a low impedance path and can be used when the radio is not in use or if lightning is likely.`
         },
         {
             id: 4,
-            name: 'Charlie Flenderson',
+            name: 'Charlette Flenderson',
             lastActive: '2 hours ago',
             activity: 'commented on',
-            pic: '',
-            message: `If the option "Filter duplicate users" is enabled, it means that if a user adds two comments on your giveaway video, it's only counted as one entry.`
+            pic: charlette,
+            message: `Usually the offset voltage is determined by mismatches in the input circuit. That means the transistors in the differential pair, load resistors, etc. On a chip these things are intrinsically matched because they are fabricated at the same time. In a discrete circuit you might need to manually match these components. I think you can buy transistor pairs in a single package. I remember seeing an (old) discrete op amp with input transistors wrapped with a piece of metal to keep the temperatures uniform.`
         },
     ];
 
@@ -92,7 +93,7 @@ const Navbar = () => {
                         <HiMenuAlt2 className={`${isDarkMode ? 'text-white' : 'text-black'} cursor-pointer`} size={40} color='' onClick={toggleSidebar} />
                     </div>
                     <div className='w-full flex justify-end items-center gap-10'>
-                        <div className={`hidden md:flex items-center bg-white pl-2 rounded-[8px] bg-transparent ${isDarkMode ? ' border border-gray-600' : ' border border-gray-300'}`}>
+                        <div className={`hidden md:flex items-center pl-2 rounded-[8px] bg-transparent ${isDarkMode ? ' border border-gray-600' : ' border border-gray-300'}`}>
                             <IoSearch className={`${isDarkMode ? 'text-white' : 'text-[color:var(--primary-dark)]'}`} size={25} />
                             <input type="text" className={`w-full min-w-[200px] max-w-[300px] px-2 py-2 outline-none rounded-[8px] text-[14px] ${isDarkMode ? 'bg-[color:var(--primary-dark)] text-gray-200' : 'bg-white text-black'}`} placeholder='Search' />
                         </div>
@@ -101,25 +102,29 @@ const Navbar = () => {
                                 <p className='text-white'>4</p>
                             </span>
                             <BiMessageRoundedDetail onClick={() => setAllPopUpToggle({
-                                ...allPopUpToggle,
-                                messageToggleOpen: !allPopUpToggle?.messageToggleOpen
+                                messageToggleOpen: !allPopUpToggle?.messageToggleOpen,
+                                notificationToggleOpen: false,
                             })} className={`${isDarkMode ? 'text-white' : 'text-[color:var(--primary-dark)]'}`} size={35} />
                             {
                                 allPopUpToggle?.messageToggleOpen ? (
-                                    <PopupTip children={(
+                                    <PopupTip onButtonClick={() => setAllPopUpToggle({
+                                        ...allPopUpToggle,
+                                        messageToggleOpen: false,
+                                    })} children={(
                                         <div className='w-full max-h-[350px] overflow-y-scroll'>
                                             {
-                                                mockData?.map((data) => (
+                                                mockData?.filter((filterData) => filterData?.id !== 0)?.map((data) => (
                                                     <div className='w-full' key={data?.id}>
-                                                        <div className='w-full flex'>
+                                                        <div className={`w-full flex items-start cursor-pointer ${isDarkMode ? 'hover:bg-slate-700' : 'hover:bg-slate-200'} transition-all duration-300 ease-in-out p-3`}>
                                                             <div className='max-w-[50px] aspect-square w-full'>
-                                                                <div className='w-full bg-red-200 rounded-full'>
-
+                                                                <div className='w-10 h-10 rounded-full'>
+                                                                    <Image src={data?.pic} alt='Profile Pic' className='w-full h-full rounded-full object-cover' />
                                                                 </div>
                                                             </div>
                                                             <div className='w-full flex flex-col'>
-                                                                <h1>{data?.name}</h1>
-                                                                <h1>{data?.message}</h1>
+                                                                <h1 className='text-[13px] font-[700]'>{data?.name}</h1>
+                                                                <h1 className='text-[12px] mb-1'>{data?.message?.length > 10 ? data?.message?.substring(0, 56) + "..." : data?.message}</h1>
+                                                                <h1 className='text-[12px] font-[500]'>{data?.lastActive}</h1>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -135,14 +140,32 @@ const Navbar = () => {
                                 <p className='text-white'>9+</p>
                             </span>
                             <MdOutlineNotifications onClick={() => setAllPopUpToggle({
-                                ...allPopUpToggle,
-                                notificationToggleOpen: !allPopUpToggle?.notificationToggleOpen
+                                notificationToggleOpen: !allPopUpToggle?.notificationToggleOpen,
+                                messageToggleOpen: false,
                             })} className={`${isDarkMode ? 'text-white' : 'text-[color:var(--primary-dark)]'}`} size={33} />
                             {
                                 allPopUpToggle?.notificationToggleOpen ? (
-                                    <PopupTip children={(
-                                        <div className='w-full h-[300px] bg-red-400'>
-
+                                    <PopupTip onButtonClick={() => setAllPopUpToggle({
+                                        ...allPopUpToggle,
+                                        notificationToggleOpen: false,
+                                    })} children={(
+                                        <div className='w-full max-h-[350px] overflow-y-scroll'>
+                                            {
+                                                mockData?.filter((filterData) => filterData?.id !== 0)?.map((data) => (
+                                                    <div className='w-full' key={data?.id}>
+                                                        <div className={`w-full flex items-start cursor-pointer ${isDarkMode ? 'hover:bg-slate-700' : 'hover:bg-slate-200'} transition-all duration-300 ease-in-out p-3`}>
+                                                            <div className='max-w-[50px] aspect-square w-full'>
+                                                                <div className='w-10 h-10 rounded-full'>
+                                                                    <Image src={data?.pic} alt='Profile Pic' className='w-full h-full rounded-full object-cover' />
+                                                                </div>
+                                                            </div>
+                                                            <div className='w-full flex flex-col'>
+                                                                <h1 className='text-[13px] font-[500] flex gap-2 items-start'>{data?.activity == 'likes' ? (<AiFillLike color="#2596be" size={20} />) : data?.activity == 'commented on' ? (<MdOutlineMessage color="#2596be" size={28} />) : (<FaShareNodes color="#2596be" size={18} />)} {`${data?.name} ${data?.activity} your post`}</h1>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            }
                                         </div>
                                     )} />
                                 ) : null
