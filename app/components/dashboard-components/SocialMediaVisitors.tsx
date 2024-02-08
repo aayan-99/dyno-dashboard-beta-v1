@@ -1,7 +1,7 @@
 'use client'
 
 import useDarkModeStore from '@/app/stores/themeStore';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const SocialMediaVisitors = () => {
 
@@ -61,9 +61,9 @@ const SocialMediaVisitors = () => {
                 },
                 {
                     id: '06-week',
-                    media: '254,812',
+                    media: 'LinkedIn',
                     icon: '',
-                    visits: '153100',
+                    visits: '254,812',
                 },
                 {
                     id: '07-week',
@@ -74,7 +74,7 @@ const SocialMediaVisitors = () => {
             ],
         },
         {
-            id: 2,
+            id: 1,
             title: 'Month',
             data: [
                 {
@@ -122,7 +122,7 @@ const SocialMediaVisitors = () => {
             ],
         },
         {
-            id: 3,
+            id: 2,
             title: 'Year',
             data: [
                 {
@@ -171,6 +171,10 @@ const SocialMediaVisitors = () => {
         },
     ];
 
+    useEffect(() => {
+        console.log(tableData?.filter((filterData) => filterData?.id == activeTableFilterId));
+    }, []);
+
     return (
         <div className={`w-full ${isDarkMode ? 'bg-[color:var(--primary-dark)] text-white' : 'text-[color:var(--primary-dark)] bg-white'} rounded-[5px] mt-5`}>
             <div className={`p-3 px-5 flex justify-between items-center border-b ${isDarkMode ? 'border-b-[#494949]' : 'border-b-[#cccccc]'} border-dashed`}>
@@ -183,17 +187,17 @@ const SocialMediaVisitors = () => {
                     }
                 </div>
             </div>
-            <div className='w-full mt-7 px-4'>
-                <div className='w-full flex justify-between items-center py-2 bg-gray-600 px-2'>
+            <div className='w-full mt-7 px-4 pb-4'>
+                <div className={`w-full flex justify-between items-center py-2 px-2 mb-2 rounded-[5px] ${isDarkMode ? 'text-white bg-gray-600' : 'text-[color:var(--primary-dark)] bg-gray-400'}`}>
                     <h1 className='text-[14px] font-[400]'>Sources</h1>
                     <h1 className='text-[14px] font-[400]'>Visitors</h1>
                 </div>
                 <div className='w-full flex flex-col'>
                     {
-                        tableData[0]?.data?.map((data) => (
-                            <div key={data?.id} className='w-full flex justify-between items-center'>
-                                <h1>{data?.media}</h1>
-                                <h1>{data?.visits}</h1>
+                        tableData?.filter((filterData) => filterData?.id == activeTableFilterId)[0]?.data?.map((data) => (
+                            <div key={data?.id} className={`w-full flex justify-between items-center py-1.5 px-2 rounded-[5px] ${isDarkMode ?  'hover:bg-gray-700 text-white' : 'hover:bg-gray-300 text-[color:var(--primary-dark)]'}`}>
+                                <h1 className='text-[14px]'>{data?.media}</h1>
+                                <h1 className='text-[14px]'>{data?.visits}</h1>
                             </div>
                         ))
                     }
