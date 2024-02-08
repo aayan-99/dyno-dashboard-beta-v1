@@ -20,7 +20,7 @@ const DateBar = () => {
                 <span className='w-full max-w-[35px] flex justify-center items-center rounded-r-[7px] h-full bg-[color:var(--primary-color)] p-2 cursor-pointer'><SlCalender color='white' onClick={() => setOpenCalender(!openCalender)} /></span>
             </div>
             {openCalender ? (
-                <div className='absolute right-0 top-[105%] z-[80]'>
+                <div className='absolute -right-[50%] md:right-0 top-[105%] z-[80]'>
                     <Calender />
                 </div>
             ) : null}

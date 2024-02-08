@@ -18,7 +18,7 @@ const Settings = () => {
         <>
             <div className={`${isDarkMode ? 'bg-[color:var(--primary-dark)]' : 'bg-white'} h-screen fixed top-0 right-0 transition-all z-[100] duration-200 ease-in-out ${settingsOpen ? 'w-[300px]' : 'w-[0px]'}`}>
                 <div className='w-full h-full relative'>
-                    <div className='absolute w-full full h-full inset-0 flex justify-start items-center '>
+                    <div className='absolute w-full full h-full inset-0 md:flex justify-start items-center hidden'>
                         <span className='min-w-[50px] min-h-[50px] rounded-l-full -translate-x-[50px] flex justify-center items-center bg-[color:var(--primary-color)] cursor-pointer' onClick={toggleSettingsOpen}>
                             <TbSettings className='text-white' size={30} />
                         </span>

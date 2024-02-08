@@ -182,9 +182,9 @@ const SalesAnalyticsGraph = () => {
     const [activeGraphFilterId, setActiveGraphFilterId] = useState(0);
 
     return (
-        <div className={`w-full ${isDarkMode ? 'bg-[color:var(--primary-dark)] text-white' : 'text-[color:var(--primary-dark)] bg-white'} rounded-[5px] mt-5`}>
+        <div className={`w-full h-full ${isDarkMode ? 'bg-[color:var(--primary-dark)] text-white' : 'text-[color:var(--primary-dark)] bg-white'} rounded-[5px]`}>
             <div className={`p-3 px-5 flex justify-between items-center border-b ${isDarkMode ? 'border-b-[#494949]' : 'border-b-[#cccccc]'} border-dashed`}>
-                <h1 className='text-xl tracking-tight'>Sales Analytics</h1>
+                <h1 className='text-lg tracking-tight'>Sales Analytics</h1>
                 <div className='w-fit flex justify-center gap-2'>
                     {
                         graphFilters?.map((data) => (

@@ -28,7 +28,7 @@ const Sidebar = () => {
             </div>
 
 
-            <div className={`h-screen block md:hidden fixed top-0 left-0 transition-all duration-200 ease-in-out ${sidebarOpen ? 'w-full' : 'w-0'} ${isDarkMode ? 'bg-[color:var(--primary-dark)]' : 'bg-white'}`}>
+            <div className={`h-screen block md:hidden z-[100] fixed top-0 left-0 transition-all duration-200 ease-in-out ${sidebarOpen ? 'w-full' : 'w-0'} ${isDarkMode ? 'bg-[color:var(--primary-dark)]' : 'bg-white'}`}>
                 <div className='w-full flex justify-end items-center px-4 py-6'>
                     <RxCross2 className={`${isDarkMode ? 'text-white' : 'text-[color:var(--primary-dark)]'}`} size={25} onClick={toggleSidebar} />
                 </div>

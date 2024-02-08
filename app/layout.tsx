@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const { sidebarOpen, toggleSidebar } = useSidebarStore();
+  const { sidebarOpen } = useSidebarStore();
   const { isDarkMode } = useDarkModeStore();
 
   return (
@@ -26,7 +26,7 @@ export default function RootLayout({
         <Navbar />
         <Sidebar />
         <Settings />
-        <div className={`pt-[70px] transition-all duration-200 ease-in-out ${sidebarOpen ? 'pl-[280px]' : 'pl-[70px]'}`}>
+        <div className={`pt-[70px] transition-all duration-200 ease-in-out ${sidebarOpen ? 'md:pl-[280px]' : 'md:pl-[70px]'}`}>
           {children}
         </div>
         <Footer />
