@@ -21,7 +21,7 @@ import christopher from '@/app/assets/images/Christopher.jpg'
 import zana from '@/app/assets/images/Zana.jpg'
 import candice from '@/app/assets/images/Candice.jpg'
 import charlette from '@/app/assets/images/Charlette.jpg'
-import DateBar from '@/app/components/dashboard-components/DateBar';
+import DateBar from '@/app/components/ecom-dashboard-components/DateBar';
 
 
 const Navbar = () => {

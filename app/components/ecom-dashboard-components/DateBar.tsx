@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { SlCalender } from "react-icons/sl";
-import Calender from '@/app/components/dashboard-components/Calender'
+import Calender from '@/app/components/ecom-dashboard-components/Calender'
 import useDarkModeStore from '@/app/stores/themeStore';
 
 const DateBar = () => {

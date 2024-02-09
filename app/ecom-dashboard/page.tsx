@@ -1,12 +1,12 @@
 import React from 'react'
-import Header from '@/app/components/dashboard-components/Header'
-import RevenueCardsView from '@/app/components/dashboard-components/RevenueCardsView'
-import SalesAnalyticsGraph from '@/app/components/dashboard-components/SalesAnalyticsGraph'
-import SocialMediaVisitors from '@/app/components/dashboard-components/SocialMediaVisitors'
-import NewCustomers from '@/app/components/dashboard-components/NewCustomers'
-import RecentOrders from '@/app/components/dashboard-components/RecentOrders'
+import Header from '@/app/components/common-dashboard-components/Header'
+import RevenueCardsView from '@/app/components/ecom-dashboard-components/RevenueCardsView'
+import SalesAnalyticsGraph from '@/app/components/ecom-dashboard-components/SalesAnalyticsGraph'
+import SocialMediaVisitors from '@/app/components/ecom-dashboard-components/SocialMediaVisitors'
+import NewCustomers from '@/app/components/ecom-dashboard-components/NewCustomers'
+import RecentOrders from '@/app/components/ecom-dashboard-components/RecentOrders'
 
-const Dashboard = () => {
+const EComDashboard = () => {
   return (
     <div className='w-full p-5 pb-16'>
       <Header title='eCommerce Dashboard' />
@@ -29,4 +29,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default EComDashboard
